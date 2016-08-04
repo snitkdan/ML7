@@ -26,8 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
+#Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -39,6 +38,12 @@ INSTALLED_APPS = (
     'rest_framework', #enables REST framework
     'ML7', #enables my app
 )
+
+REST_FRAMEWORK = {
+  'DEFAULT_PERMISSION_CLASSES': [
+	'rest_framework.permissions.IsAuthenticated',
+  ]
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,7 +67,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'ML7',
 	'USER':'snitkdan',
-	'PASSWORD':'',
+	'PASSWORD':'Daniel27876',
 	'HOST':'localhost',
 	'PORT': '',
     }
