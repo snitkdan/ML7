@@ -1,9 +1,8 @@
 from rest_framework import serializers
-from .models import Book
+from .models import Book, Author
 
 class BookAuthSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Book
-    fields = ('id', 'title', 'pub_date', 'publisher', 'summary', 'price', 'purchase_link', 'cover_image')
 
-
+    class Meta:
+        model = Book
+        fields = '__all__'
