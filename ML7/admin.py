@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .book import Book
+from .models import Book
 
 # Register your models here.
 
