@@ -58,8 +58,8 @@ WSGI_APPLICATION = 'myvenv.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'ML7',
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME':'ML7',
 	'USER':'snitkdan',
 	'PASSWORD':'Daniel27876',
 	'HOST':'localhost',
