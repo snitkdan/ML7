@@ -1,5 +1,9 @@
 from django.db import models
 
+class Author(models.Model):
+    fname = models.CharField(max_length = 50)
+    lname = models.CharField(max_length = 50)
+
 class Book(models.Model):
     title = models.CharField(max_length = 100)
     author = models.ManyToManyField(Author)
@@ -11,8 +15,6 @@ class Book(models.Model):
     cover_image = models.URLField()
 
     def __str__(self):
-        return self.title + ", published by " + self. publisher
-class Author(models.Model):
-    fname = models.CharField(max_length = 50)
-    lname = models.CharField(max_length = 50)
+        return self.title + ", by " + self.author.fname + " " + self.author.lname
+
 
