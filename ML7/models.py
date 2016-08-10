@@ -10,7 +10,7 @@ class Book(models.Model):
     cover_image = models.URLField()
 
 class Author(models.Model):
-    books = models.ManyToManyField(Book)
+    books = models.ManyToManyField('Book')
     fname = models.CharField(max_length = 50)
     lname = models.CharField(max_length = 50)
 
