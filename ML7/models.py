@@ -1,12 +1,12 @@
 from django.db import models
 
 class Author(models.Model):
+    books = models.ManyToManyField(Book)
     fname = models.CharField(max_length = 50)
     lname = models.CharField(max_length = 50)
 
 class Book(models.Model):
     title = models.CharField(max_length = 100)
-    author = models.ManyToManyField(Author)
     pub_date = models.DateField()
     publisher = models.CharField(max_length = 100)
     summary = models.CharField(max_length = 1000)
