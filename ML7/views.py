@@ -1,4 +1,4 @@
-from ML7.book import Book
+from .models import Book
 from .serializers import BookAuthSerializer
 from rest_framework import generics
 from rest_framework.decorators import api_view
