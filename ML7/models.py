@@ -1,10 +1,5 @@
 from django.db import models
 
-class Author(models.Model):
-    books = models.ManyToManyField(Book)
-    fname = models.CharField(max_length = 50)
-    lname = models.CharField(max_length = 50)
-
 class Book(models.Model):
     title = models.CharField(max_length = 100)
     pub_date = models.DateField()
@@ -13,6 +8,11 @@ class Book(models.Model):
     price = models.DecimalField(max_digits = 5, decimal_places = 2)
     purchase_link = models.URLField()
     cover_image = models.URLField()
+
+class Author(models.Model):
+    books = models.ManyToManyField(Book)
+    fname = models.CharField(max_length = 50)
+    lname = models.CharField(max_length = 50)
 
     def __str__(self):
         return self.title
