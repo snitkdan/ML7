@@ -7,7 +7,7 @@ from .serializers import BookSerializer
 
 # Lists all stocks or create a new one
 # books/
-class BookAuthList(APIView):
+class BookList(APIView):
 
     def get(self, request):
         books = Book.objects.all()
