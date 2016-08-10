@@ -15,6 +15,6 @@ class Book(models.Model):
     cover_image = models.URLField()
 
     def __str__(self):
-        return self.title + ", by " + self.author.fname + " " + self.author.lname
+        return self.title
 
 
