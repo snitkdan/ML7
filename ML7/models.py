@@ -9,12 +9,13 @@ class Book(models.Model):
     purchase_link = models.URLField()
     cover_image = models.URLField()
 
+    def __str__(self):
+        return self.title
+
 class Author(models.Model):
     books = models.ManyToManyField(Book)
     fname = models.CharField(max_length = 50)
     lname = models.CharField(max_length = 50)
 
-    def __str__(self):
-        return self.title
 
 
