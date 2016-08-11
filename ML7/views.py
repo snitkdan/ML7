@@ -6,8 +6,7 @@ from rest_framework import mixins
 from rest_framework import status
 from .models import Book
 from .serializers import BookSerializer
-from ratelimit.mixins import RatelimitMixin
-from ratelimit import ALL, UNSAFE
+from ratelimit.mixin import RatelimitMixin
 
 # Lists all books or create a new one
 # books/
@@ -16,7 +15,7 @@ from ratelimit import ALL, UNSAFE
 class BookList(RatelimitMixin, generics.ListCreateAPIView):
     ratelimit_key = 'ip'
     ratelimit_rate = '5/m'
-    ratelimit_method = ('GET', 'POST')
+    ratelimit_method = ratelimit.UNSAFE
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
