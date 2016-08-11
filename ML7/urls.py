@@ -3,8 +3,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from ML7 import views
 
 urlpatterns = [
-    url(r'^books/$', views.BookList.as_view(), name='book-list'),
-    url(r'^books/(?P<pk>[0-9]+)/$', views.BookDetail.as_view(), name='Book_detail'),
+    url(r'^', views.BookList.as_view(), name='book-list'),
+    url(r'^(?P<pk>[0-9]+)/$', views.BookDetail.as_view(), name='book-detail'),
 ]
-
 urlpatterns = format_suffix_patterns(urlpatterns)
