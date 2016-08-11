@@ -6,9 +6,13 @@ from rest_framework import mixins
 from rest_framework import status
 from .models import Book
 from .serializers import BookSerializer
+from ratelimit.decorators import ratelimit
 
 # Lists all books or create a new one
 # books/
+
+# ratelimit by ip address limiting gets/creates to 5/m
+@ratelimit(key='ip', rate='5/m', block=True)
 class BookList(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
