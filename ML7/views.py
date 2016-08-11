@@ -6,18 +6,17 @@ from rest_framework import mixins
 from rest_framework import status
 from .models import Book
 from .serializers import BookSerializer
-from ratelimit.mixin import RatelimitMixin
+from rest_framework.throttling import UserRateThrottle
 
 # Lists all books or create a new one
 # books/
 
 # ratelimit by ip address limiting gets/creates to 5/m
-class BookList(RatelimitMixin, generics.ListCreateAPIView):
-    ratelimit_key = 'ip'
-    ratelimit_rate = '5/m'
-    ratelimit_method = ratelimit.UNSAFE
+class BookList(generics.ListCreateAPIView):
+    #throttle_classes = (UserRateThrottle,)
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
 
 # Get a book, update it, or destroy it!
 # books/pk
