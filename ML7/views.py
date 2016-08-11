@@ -8,7 +8,6 @@ from rest_framework.throttling import UserRateThrottle
 
 # ratelimit by ip address limiting gets/creates to 5/m
 class BookList(generics.ListCreateAPIView):
-    throttle_classes = (UserRateThrottle,)
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
