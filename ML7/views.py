@@ -7,6 +7,7 @@ from rest_framework import status
 from .models import Book
 from .serializers import BookSerializer
 from ratelimit.mixins import RatelimitMixin
+from ratelimit import ALL, UNSAFE
 
 # Lists all books or create a new one
 # books/
