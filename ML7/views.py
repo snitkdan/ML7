@@ -19,7 +19,7 @@ class BookList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericA
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
-class BookDetail(generics.RetrieveAPIView):
+#class BookDetail(generics.RetrieveAPIView):
 
 
 
