@@ -6,7 +6,7 @@ from rest_framework import mixins
 from rest_framework import status
 from .models import Book
 from .serializers import BookSerializer
-from ratelimit.decorators import ratelimit
+from ratelimit.mixins import RatelimitMixin
 
 # Lists all books or create a new one
 # books/
