@@ -12,8 +12,10 @@ from ratelimit.decorators import ratelimit
 # books/
 
 # ratelimit by ip address limiting gets/creates to 5/m
-class BookList(generics.ListCreateAPIView):
-    @ratelimit(key='ip', rate='5/m', method = ('GET', 'POST'), block=True)
+class BookList(RatelimitMixin, generics.ListCreateAPIView):
+    ratelimit_key = 'ip'
+    ratelimit_rate = '5/m'
+    ratelimit_method = ('GET', 'POST')
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
